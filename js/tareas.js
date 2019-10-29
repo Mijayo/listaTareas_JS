@@ -27,8 +27,8 @@ function agregarItem(a) {
 
     // Creamos el objeto con los datos de las tareas con el ID en auto increment
     var itemObject = {
-        'id': cont++,
-        'tarea': nuevoItem
+        'id': `'${cont++}'`,
+        'tarea': `${nuevoItem}`
     };
 
     // Definimos la variable del array para almacenar el objeto itemObject
