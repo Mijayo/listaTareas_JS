@@ -25,22 +25,28 @@ function agregarItem(a) {
     var nuevoItem = document.getElementById('itemAgregar').value;
     // console.log(nuevoItem);
 
-    // Agregarlo a un array
-    var arrayLocal = [];
-
     // Creamos el objeto con los datos de las tareas con el ID en auto increment
     var itemObject = {
         'id': cont++,
         'tarea': nuevoItem
     };
 
+    // Definimos la variable del array para almacenar el objeto itemObject
+    var arrayLocal;
+
+    if (localStorage.getItem('nuevaTarea') === null) {
+        // Defino el array
+        arrayLocal = [];
+    } else {
+        arrayLocal = JSON.parse(localStorage.getItem('nuevaTarea'));
+    }
+    // 
     arrayLocal.push(itemObject);
-    console.log(arrayLocal);
+    // console.log(arrayLocal);
 
     // Meterlo en localStorage
-    localStorage.setItem('nuevaTarea', JSON.stringify(itemObject));
+    localStorage.setItem('nuevaTarea', JSON.stringify(arrayLocal));
 
-    var storedTareas = JSON.parse(localStorage.getItem('nuevaTarea'));
 
 
     var li = document.createElement('li');
@@ -67,6 +73,7 @@ function eliminarItem(e) {
         if (confirm('¿Seguro que quiere eliminarlo?')) {
             // Quitar del localStorage
             localStorage.removeItem("nuevaTarea");
+
             var li = e.target.parentElement;
             lista.removeChild(li);
         }
