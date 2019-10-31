@@ -12,6 +12,16 @@
 </head>
 
 <body>
+
+    <script src="js/jquery.amaran.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        $('#start').on('click', function() {
+            $.amaran({
+                'message': 'My first example!'
+            });
+        });
+    </script>
     <header id="main-header" class="bg-info text-white p-4 mb-3">
         <div class="container">
             <div class="row">
@@ -29,17 +39,15 @@
             <h2 class="title">Agregar Tareas</h2>
             <form id="formAgregar" class="form-inline mb-3">
                 <input id="itemAgregar" type="text" class="form-control mr-2 margTop" value=''>
-                <input type="submit" class="btn btn-dark margTop" value="añadir">
+                <input type="submit" class="btn btn-dark margTop" id="start" value="añadir">
             </form>
             <h2 class="title">Lista de tareas añadidas</h2>
             <ul id="items" class="list-group"></ul>
         </div>
     </div>
 
-</body>
 
+</body>
 <script src="js/tareas.js"></script>
-<script src="js/jquery.amaran.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
 </html>
