@@ -1,6 +1,18 @@
 // Cada vez que se refresca la pagina se vacia el localStorage
 localStorage.clear();
 
+/// JQUERY ///
+
+$(document).ready(function() {
+    $("#start").click(function() {
+        // alert("Botón pulsado");
+        $.amaran({
+            'message': 'My first example!'
+        });
+    });
+});
+
+
 /// AGREGA UN ELEMENTO A LA LISTA ///
 var form = document.getElementById('formAgregar');
 var lista = document.getElementById('items');
