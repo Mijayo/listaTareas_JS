@@ -5,10 +5,11 @@ localStorage.clear();
 
 $(document).ready(function() {
     $("#start").click(function() {
-        // Entra hasta aqui! 
-        // alert("Botón pulsado");
-        //// No imprime esto de $.amaran - En verdad, que pollas es $.amaran????
-        $.notify("Tarea añadida", { position: "bottom left" });
+        $.notify("Tarea añadida", {
+            className: 'success',
+            position: 'bottom right',
+            autoHideDelay: 2500
+        });
     });
 });
 
