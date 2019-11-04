@@ -1,10 +1,11 @@
 // Cada vez que se refresca la pagina se vacia el localStorage
-localStorage.clear();
+// localStorage.clear();
 
-/// JQUERY ///
-
+/// JQUERY QUE MUESTRA MENSAJE EN LA PANTALLA CUANDO SE AÑADE LA TAREA /////
+/// Uso una libreria que se llama notify.js ///////////////////////////////
 $(document).ready(function() {
     $("#start").click(function() {
+        // Libreria notify.js
         $.notify("Tarea añadida", {
             className: 'success',
             position: 'bottom right',
@@ -12,15 +13,14 @@ $(document).ready(function() {
         });
     });
 });
+//////////////////////////////////////////////////////////////////////////////////
 
-////////////
-
-/// AGREGA UN ELEMENTO A LA LISTA ///
+/// VARIABLES AGREGA UN ELEMENTO A LA LISTA ///
 var form = document.getElementById('formAgregar');
 var lista = document.getElementById('items');
 var cont = 0;
 
-/// BUSCAR EL ELEMENTO ///
+/// VARIABLES BUSCAR EL ELEMENTO ///
 var filtro = document.getElementById('filtro');
 
 // Evento para buscar en la lista es keyup()
@@ -35,7 +35,9 @@ lista.addEventListener('click', eliminarItem);
 // Funcion para agregar
 function agregarItem(a) {
 
+    // Funcion para prevenir cualquier error
     a.preventDefault();
+
     var nuevoItem = document.getElementById('itemAgregar').value;
 
     // Creamos el objeto con los datos de las tareas con el ID en auto increment
@@ -122,15 +124,24 @@ function eliminarItem(ID) {
     localStorage.setItem('nuevaTarea', JSON.stringify(tareas));
 }
 
+
 // Funcion para buscar en la lista
 function filtrarItems(e) {
+    // Ponemos todo en minusculas usando toLowerCase()
     var texto = e.target.value.toLowerCase();
+    // Creamos la variable items para luego recorrer todos los li con un forEach
     var items = lista.getElementsByTagName('li');
+
+    // Metemos el contenido de los li en un Array y lo recorremos
     Array.from(items).forEach(function(item) {
+        // Obtenemos el contenido del texto y lo guardamos en una variable
         var itemNombre = item.firstChild.textContent;
+        // Si el contenido del texto esta contenido en el array, es != -1 usando indexOf(), entonces lo mostramos
         if (itemNombre.toLowerCase().indexOf(texto) != -1) {
+            // Lo mostramos
             item.style.display = 'block';
         } else {
+            // Oculto
             item.style.display = 'none';
         }
     });
