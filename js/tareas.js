@@ -13,6 +13,7 @@ $(document).ready(function() {
     });
 });
 
+////////////
 
 /// AGREGA UN ELEMENTO A LA LISTA ///
 var form = document.getElementById('formAgregar');
