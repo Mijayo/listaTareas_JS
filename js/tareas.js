@@ -2,7 +2,7 @@
 // localStorage.clear();
 
 /// JQUERY QUE MUESTRA MENSAJE EN LA PANTALLA CUANDO SE AÑADE LA TAREA /////
-/// Uso una libreria que se llama notify.js ///////////////////////////////
+/// Uso una libreria que se llama notify.js / https://notifyjs.jpillora.com 
 $(document).ready(function() {
     $("#start").click(function() {
         // Libreria notify.js
